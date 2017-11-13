@@ -1,0 +1,3 @@
+d2 = {'spam': 2, 'ham': 1, 'eggs': 3} # make a dictionary
+print d2 # order is scrambled
+print d2.keys() # create a new list of my keys
