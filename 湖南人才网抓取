@@ -1,0 +1,13 @@
+import urllib2
+import re
+url = 'http://www.hnrcsc.com/web/seekjob/search-job!search.action?m=search&n=ts&filter.positionCode=02'
+headers = { 'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.108 Safari/537.36 2345Explorer/8.8.3.16721'}
+request = urllib2.Request(url,headers = headers)
+response = urllib2.urlopen(request)
+html = response.read().decode('utf-8')
+content_pattern = re.compile('<tr class="odd">.*?<a.*?>(.*?)</a>.*?<a.*?>(.*?)</a>',re.S)
+content_items = re.findall(content_pattern,html)
+for item in content_items:
+    input = raw_input()
+    print item[0],item[1]
+        
